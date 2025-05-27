@@ -308,6 +308,9 @@ nav ul li a.active{
     font-weight: 600;
     color: #fff;
 }
+.sub-title span{
+    color: var(--primary-color);
+}
 .tab-titles {
     display: flex;
     margin: 20px 0 30px;
