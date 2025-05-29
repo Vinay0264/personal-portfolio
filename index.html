@@ -36,7 +36,7 @@
             <p>Passionate Computer Science graduate dedicated to building smooth, user-friendly digital experiences through technology and design.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn">Hire Me</a>
-                <a href="Vinay_Vasa_Resume.pdf" class="btn" download title="Download Vinay's Resume"  onclick="checkResume()"> Download Resume</a>
+                <a href="Vinay_Resume_.pdf" class="btn" download title="Download Vinay's Resume" target="_blank" onclick="checkResume()"> Download Resume</a>
             </div>
             <div class="scl">
                 <a href="https://www.linkedin.com/in/vasavinay/" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -270,10 +270,10 @@
         }
 
         function checkResume() {
-        fetch('Vinay_Vasa_Resume.pdf', { method: 'HEAD' })
+        fetch('Vinay_Resume_.pdf', { method: 'HEAD' })
             .then(res => {
             if (res.ok) {
-                window.location.href = 'Vinay_Vasa_Resume.pdf'; // download starts
+                window.location.href = 'Vinay_Resume_.pdf'; // download starts
             } else {
                 alert('Resume file not found!');
             }
