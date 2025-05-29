@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vinay Vasa's Portfolio - Frontend Developer, Programmer, and Tech Enthusiast.">
+    <meta name="author" content="Vinay Vasa">
     <title>Vinay's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -29,18 +31,18 @@
                 <span style="--i:4;" data-text="Programmer">Programmer</span>
                 <span style="--i:3;" data-text="Frontend developer">Frontend developer</span>
                 <span style="--i:2;" data-text="Web developer">Web developer</span>
-                <span style="--i:1;" data-text="Influncer">Influncer</span>
+            <!--    <span style="--i:1;" data-text="Influncer">Influncer</span> -->
             </h2>
             <p>Passionate Computer Science graduate dedicated to building smooth, user-friendly digital experiences through technology and design.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn">Hire Me</a>
-                <a href="Vinay_Vasa_Resume.pdf" class="btn" download title="Download Vinay's Resume"> Download Resume</a>
+                <a href="Vinay_Vasa_Resume.pdf" class="btn" download title="Download Vinay's Resume"  onclick="checkResume()"> Download Resume</a>
             </div>
             <div class="scl">
-                <a href=""><i class="bi bi-github"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/vasavinay/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/Vinay0264" target="_blank"><i class="bi bi-github"></i></a>
                 <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-whatsapp"></i></a>
+                <a href="https://wa.link/73khkh"><i class="bi bi-whatsapp"></i></a>
             </div>
         </div>
         <div class="home-img">
@@ -56,13 +58,13 @@
     <section id="about">
        <div class="container">
           <div class="about-content">          
-                <!-- Profile Image -->
+                <!-- Profile Image 
                 <div class="about-col-1">
                     <img src="./V- img.png" alt="profile">
-                </div>
+                </div> -->
                  <!-- About Content -->
                 <div class="about-col-2">
-                    <h1 class="sub-title">About <span>Me</span></h1><p>I'm <strong>Vinay Vasa</strong>, a passionate Computer Science student who enjoys solving problems and building seamless digital experiences.<br><br>
+                    <h1 class="sub-title">About <span>Me</span></h1><p class="desc">I'm <strong>Vinay Vasa</strong>, a passionate Computer Science student who enjoys solving problems and building seamless digital experiences.<br><br>
                     From writing my first line of code to developing real-world applications, I've always been driven by curiosity and a love for technology. My expertise lies in 
                         <strong>frontend development, API integration, and building intuitive web interfaces</strong> that merge design with functionality.<br><br>
                         Beyond coding, I love <strong>exploring AI tools, experimenting with creative design, and staying up-to-date with emerging technologies</strong>. I'm always eager to learn and evolve in this dynamic tech industry.</p>
@@ -70,109 +72,162 @@
                     <!-- Tabs for Skills, Experience, Education -->
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')                      ">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')                       ">Education</p>
-
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
-                    <!-- Tab Content -->
+                    
+                    <!-- Tab Content --> 
+
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
-                            <li><span class="skills-info">Programming Languages:</span><br> Python, JavaScript, HTML, CSS</li>
-
-                            <li><span class="skills-info">Web Technologies:</span><br> React, API Integration, Git, Bootstrap</li>
-
-                            <li><span class="skills-info">UI/UX:</span><br> Responsive Design, Figma (Basic)</li>
-
-                            <li><span class="skills-info">Tools:</span><br> VS Code, GitHub, Postman, Linux (Basic)</li>
+                        <li><span class="skills-info">Languages:</span> HTML, CSS, JavaScript, Python (Basic)</li>
+                        
+                        <li><span class="skills-info">Frameworks & Libraries:</span> React (Basic), Bootstrap</li>
+                        
+                        <li><span class="skills-info">Development Tools:</span> VS Code, Git & GitHub</li>
+                        
+                        <li><span class="skills-info">UI/UX & Design:</span> Responsive Design, Figma (Basic)</li>
+                        
+                        <li><span class="skills-info">Other Skills:</span> API Integration, Debugging, Version Control</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="experience">
                         <ul>                       
-                            <li><span class="exp-info">Internship:</span><br> Python Full-Stack Intern at Datavalley, worked on a Weather Widget App with API integration.</li>
+                            <li><span class="exp-info">Internship:</span> Python Full-Stack Intern at Datavalley, developed a Weather Widget App using API integration and basic front-end technologies.</li>
 
-                            <li><span class="exp-info">Team Projects:</span><br> Collaborated on a Chatbot development project, enhancing problem-solving and AI skills.</li>
+                            <li><span class="exp-info">Team Projects: </span>  Collaborated on a simple College Website project, focusing on layout design and responsive front-end development.
+                            </li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="education">
                     <ul>
                         <li>
-                        <span class="edu-info">B.Sc. Computer Science (MPCs)</span><br>
-                        Balaji Degree College, Visakahpatnam<br>
-                        2022 - 2025
+                        <span class="edu-info">B.Sc. Computer Science (MPCs) </span>
+                        <div class="edu-details">
+                            <div class="college-name">Balaji Degree College, Visakhapatnam</div>
+                            <div class="percentage"> 85%
+                                <div class="year">2022 - 2025</div>
+                            </div>
+                        </div>
                         </li>
                         <li>
-                        <span class="edu-info">Intermediate (MPC)</span><br>
-                        Balaji Junior College, Visakahpatnam<br>
-                        2020 - 2022
+                        <span class="edu-info">Intermediate (MPC)</span>
+                                <div class="edu-details">
+                                    <div class="college-name">Balaji Junior College, Visakhapatnam</div>
+                                    <div class="percentage">80%
+                                        <div class="year">2020 - 2022</div>
+
+                                    </div>
+                                </div>
                         </li>
                         <li>
-                        <span class="edu-info">SSC</span><br>
-                        Govt High School, Pendurthi<br>
-                        2019 - 2020
+                        <span class="edu-info">SSC</span>
+                            <div class="edu-details"> 
+                                <div class="college-name">Govt High School, Pendurthi</div>
+                                <div class="percentage">92%
+                                    <div class="year">2019 – 2020</div>
+                                </div>
+                            </div>
                         </li>
                         <li>
-                        <span class="edu-info">Certifications</span><br>Python Full-Stack Development - DataValley<br>
-                        Prompt Engineering - ChatGPT (OpenAI)
+                        <span class="edu-info">Certifications</span>  
+                        <ul>
+                            <li>Full-Stack Development - DataValley</li>
+                            <li>Python Full-Stack Development - Datapro</li>
+                        </ul>
                         </li>
                     </ul>
                     </div>
-
                 </div>
          </div>
        </div>
     </section>
     
+    <!----------- Services section ------------>
+
+
     <section id="services">
         <div class="container">
-            <h1 class="sub-title">My services</h1>
+            <h1 class="sub-title">My <span>services</span></h1>
             <div class="services-list">
-                
+                <div>
+                    <i class="bi bi-browser-chrome"></i>
+                    <h2>web development</h2>
+                    <p>Creating fast, functional, and responsive websites using HTML, CSS, JavaScript, and React. I build the structure and logic that make websites work.</p>
+
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="bi bi-google-play"></i>
+                    <h2>Web Design</h2>
+                    <p>Designing clean and intuitive user interfaces that look great on all devices. I use layout principles, color theory, and tools like Figma to bring ideas to life.</p>
+
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="bi bi-code-slash"></i>
+                    <h2>Tech Consulting</h2>
+                    <p>Helping individuals and small teams choose the right tools, plan projects, and explore AI or automation solutions to improve workflow and productivity.</p>
+
+                    <a href="#">Learn more</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio">
-        <div class="projects-container">
-            <h2>My Projects</h2>
-    
-            <div class="project">
-                <h3>🌦️ Weather Forecast App</h3>
-                <p><strong>Tech Used:</strong> HTML, CSS, JavaScript, OpenWeather API</p>
-                <p>A real-time weather app with API integration, dynamic theming, and a location search feature.</p>
-                <div class="project-links">
-                    <a href="YOUR_PROJECT_LINK" target="_blank" class="btn">🔗 View Project</a>
-                    <a href="YOUR_GITHUB_LINK" target="_blank" class="btn">💻 GitHub Code</a>
-                </div>
-            </div>
-    
-            <div class="project">
-                <h3>🏫 College Website</h3>
-                <p><strong>Tech Used:</strong> HTML, CSS, JavaScript</p>
-                <p>A responsive website designed for our college with a smooth navigation experience.</p>
-                <div class="project-links">
-                    <a href="YOUR_PROJECT_LINK" target="_blank" class="btn">🔗 View Project</a>
-                    <a href="YOUR_GITHUB_LINK" target="_blank" class="btn">💻 GitHub Code</a>
-                </div>
-            </div>
-    
-            <div class="project">
-                <h3>🤖 Chatbot Project (Ongoing)</h3>
-                <p><strong>Tech Used:</strong> Python, AI/ML (Future Scope)</p>
-                <p>Developing a chatbot with conversational AI for better user interaction.</p>
-                <div class="project-links">
-                    <span class="btn disabled">🚧 Work in Progress</span>
-                </div>
-            </div>
+      <!----------- Portfolio section ------------>
+
+<section id="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My <span>Work</span></h1>
+    <div class="work-list">
+
+      <!-- College Website Project -->
+      <div class="work">
+        <img src="work-1.jpg" alt="College Website Screenshot">
+        <div class="layer">
+          <h3>College Website</h3>
+          <p>A responsive website built for our college to showcase departments, announcements, and contact details. Created with HTML, CSS, and JavaScript.</p>
+          <a href="#"><i class="bi bi-box-arrow-up-right"></i></a>
         </div>
-    </section>
-   <section>
-        <div class="contact-section" id="contact">
-            <div class="contact-info">
+      </div>
+
+      <!-- Xpensify Project -->
+      <div class="work">
+        <img src="xpensify.png" alt="Xpensify App Screenshot">
+        <div class="layer">
+          <h3>Xpensify - Expense Tracker</h3>
+          <p>A simple web app to monitor personal expenses. Built with clean UI and JavaScript logic to add, view, and delete transactions.</p>
+          <a href="#"><i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Chatbot Project -->
+      <div class="work">
+        <img src="chatbot.png" alt="Chatbot Project Preview">
+        <div class="layer">
+          <h3>AI Chatbot (In Progress)</h3>
+          <p>Currently developing a chatbot to answer common queries using JavaScript and AI APIs. Focused on improving interaction and NLP features.</p>
+          <a href="#"><i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+    <a href="#" class="see-more-btn">See More</a>
+  </div>
+</section>
+
+
+      <!----------- Contact section ------------>
+ 
+<section>
+    <div class="contact-section" id="contact">
+        <div class="contact-info">
                 <h1>Let's <span>Work Together</span></h1>
-                <p><i class="bx bx-phone"></i> (+91) 9346478480 </p>
-                <p><i class="bx bx-mail"></i> manikantavanapalli6264@gmail.com</p>
-                <p><i class="bx bx-geo"></i> 5-109/4, Rajucheruvu, pendurthi, Vishakapatnam, andhraPradesh, India</p>
-            </div>
+                <p><i class="bi bi-telephone"></i> (+91) 9703430497 </p>
+                <p><i class="bi bi-envelope"></i>vinayv0264@gmail.com</p>
+                <p><i class="bi bi-geo-alt"></i>8-62 ScBc Colony Chinamushidiwada, Pendurthi, Vishakapatnam, AndhraPradesh, India</p>
+        </div>
         <div class="contact-container">
             <h1>Contact <span>Me</span></h1>
             <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
@@ -192,7 +247,8 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
-    </section>
+    </div>    
+</section>
 
 
 
@@ -213,7 +269,19 @@
             document.getElementById(tabname).classList.add("active-tab");
         }
 
-
+        function checkResume() {
+        fetch('Vinay_Vasa_Resume.pdf', { method: 'HEAD' })
+            .then(res => {
+            if (res.ok) {
+                window.location.href = 'Vinay_Vasa_Resume.pdf'; // download starts
+            } else {
+                alert('Resume file not found!');
+            }
+            })
+            .catch(err => {
+            alert('Error accessing the file!');
+            });
+        }
     </script>
 </body>
 </html>
