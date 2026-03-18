@@ -171,3 +171,41 @@ const statsObs = new IntersectionObserver(entries => {
 
 const statsEl = document.querySelector('.home-stats-bar');
 if (statsEl) statsObs.observe(statsEl);
+/* ═══════════════════════════════════════════
+   CONTACT FORM — AJAX with success/error
+═══════════════════════════════════════════ */
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  const formMsg     = document.getElementById('formMsg');
+  const formMsgText = document.getElementById('formMsgText');
+  const submitBtn   = contactForm.querySelector('.submit-btn');
+
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    formMsg.className = 'form-msg';
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending…';
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(contactForm)
+      });
+      const data = await res.json();
+      if (data.success) {
+        formMsg.classList.add('show', 'success');
+        formMsg.querySelector('i').className = 'bi bi-check-circle-fill';
+        formMsgText.textContent = "Message sent! I'll get back to you soon. 🙌";
+        contactForm.reset();
+      } else { throw new Error(); }
+    } catch {
+      formMsg.classList.add('show', 'error');
+      formMsg.querySelector('i').className = 'bi bi-exclamation-circle-fill';
+      formMsgText.textContent = 'Something went wrong. Please try emailing directly.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Send Message';
+      setTimeout(() => { formMsg.className = 'form-msg'; }, 6000);
+    }
+  });
+}
