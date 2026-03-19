@@ -453,77 +453,164 @@
       <h1 class="sub-title reveal">My <span>Projects</span></h1>
       <p class="section-sub reveal">Things I've built — from live deployments to works in progress.</p>
 
-      <div class="projects-grid">
+      <div class="proj-showcase reveal">
 
-        <div class="proj-card reveal" style="--proj-img: url('clg_project_img.png')">
-          <div class="proj-img-bg"></div>
-          <div class="proj-card-header">
-            <div class="proj-icon"><i class="bi bi-globe2"></i></div>
-            <div class="proj-links">
-              <a href="https://sribalajiinstitution.in/" target="_blank" title="Live Site"><i class="bi bi-box-arrow-up-right"></i></a>
-              <a href="https://github.com/Vinay0264" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-            </div>
-          </div>
-          <span class="proj-num">01</span>
-          <h3>Sri Balaji College Website</h3>
-          <p>A fully responsive multi-page website for Sri Balaji Institution — Home, About, Courses, and Contact pages. Built with JavaScript form validation and cross-device compatibility. Live and actively serving students.</p>
-          <div class="proj-tags">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
-            <span class="live-tag"><i class="bi bi-circle-fill"></i> Live</span>
-          </div>
+        <!-- TOP: Tab Pills -->
+        <div class="proj-tab-list">
+          <button class="proj-tab active" data-proj="0">
+            <span class="proj-tab-num">01</span>
+            <span class="proj-tab-name">Sri Balaji College Website</span>
+            <span class="proj-tab-live"><i class="bi bi-circle-fill"></i> Live</span>
+          </button>
+          <!-- <button class="proj-tab" data-proj="1">
+            <span class="proj-tab-num">02</span>
+            <span class="proj-tab-name">Weather Forecast App</span>
+          </button>
+          <button class="proj-tab" data-proj="2">
+            <span class="proj-tab-num">03</span>
+            <span class="proj-tab-name">Personal Portfolio</span>
+          </button> -->
+          <button class="proj-tab" data-proj="1">
+            <span class="proj-tab-num">02</span>
+            <span class="proj-tab-name">Vega – AI Assistant</span>
+            <span class="proj-tab-wip">In Progress</span>
+          </button>
         </div>
 
-        <div class="proj-card reveal" style="--proj-img: url('./proj-weather.jpg')">
-          <div class="proj-img-bg"></div>
-          <div class="proj-card-header">
-            <div class="proj-icon"><i class="bi bi-cloud-sun-fill"></i></div>
-            <div class="proj-links">
-              <a href="https://github.com/Vinay0264" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+        <!-- BOTTOM: Split Panel — image left, details right -->
+        <div class="proj-detail-panel">
+
+          <!-- Mobile nav arrows -->
+          <div class="proj-mobile-nav">
+            <button class="proj-arrow" id="projPrev" aria-label="Previous project">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <span class="proj-mobile-counter"><span id="projCurrent">1</span> / 2</span>
+            <button class="proj-arrow" id="projNext" aria-label="Next project">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Project 01 -->
+          <div class="proj-detail active" data-proj="0">
+            <!-- Left: Image -->
+            <div class="proj-detail-img-wrap">
+              <img src="clg_project_img.png" alt="Sri Balaji College Website" class="proj-detail-img"
+                onerror="this.src=''; this.closest('.proj-detail-img-wrap').classList.add('no-img')">
+              <div class="proj-img-overlay">
+                <button class="proj-fullscreen-btn" title="View fullscreen">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Right: Details -->
+            <div class="proj-detail-body">
+              <span class="proj-detail-num">01</span>
+              <h3>Sri Balaji College Website</h3>
+              <span class="proj-live-badge"><i class="bi bi-circle-fill"></i> Live &amp; Active</span>
+              <p>A fully responsive multi-page website for Sri Balaji Institution — Home, About, Courses, and Contact pages. Built with JavaScript form validation and cross-device compatibility. Live and actively serving students.</p>
+              <div class="proj-detail-tags">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span>
+              </div>
+              <div class="proj-detail-links">
+                <a href="https://sribalajiinstitution.in/" target="_blank" class="proj-detail-btn proj-detail-btn--primary">
+                  <i class="bi bi-box-arrow-up-right"></i> Live Site
+                </a>
+                <a href="https://github.com/Vinay0264" target="_blank" class="proj-detail-btn">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
             </div>
           </div>
-          <span class="proj-num">02</span>
-          <h3>Weather Forecast App</h3>
-          <p>Integrated the OpenWeatherMap REST API to fetch and display real-time weather data. Features dynamic UI updates based on conditions, city-based search, loading states, and error handling.</p>
-          <div class="proj-tags">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>REST API</span>
-          </div>
-        </div>
 
-        <div class="proj-card reveal" style="--proj-img: url('./proj-portfolio.jpg')">
-          <div class="proj-img-bg"></div>
-          <div class="proj-card-header">
-            <div class="proj-icon"><i class="bi bi-person-badge-fill"></i></div>
-            <div class="proj-links">
-              <a href="https://github.com/Vinay0264/personal-portfolio" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+          <!-- Project 02 -->
+          <!-- <div class="proj-detail" data-proj="1">
+            <div class="proj-detail-img-wrap">
+              <img src="proj-weather.jpg" alt="Weather Forecast App" class="proj-detail-img"
+                onerror="this.src=''; this.closest('.proj-detail-img-wrap').classList.add('no-img')">
+              <div class="proj-img-overlay">
+                <button class="proj-fullscreen-btn" title="View fullscreen">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+              </div>
+            </div>
+            <div class="proj-detail-body">
+              <span class="proj-detail-num">02</span>
+              <h3>Weather Forecast App</h3>
+              <p>Integrated the OpenWeatherMap REST API to fetch and display real-time weather data. Features dynamic UI updates based on conditions, city-based search, loading states, and error handling.</p>
+              <div class="proj-detail-tags">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>REST API</span><span>OpenWeatherMap</span>
+              </div>
+              <div class="proj-detail-links">
+                <a href="https://github.com/Vinay0264" target="_blank" class="proj-detail-btn">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Project 03 -->
+          <!-- <div class="proj-detail" data-proj="2">
+            <div class="proj-detail-img-wrap">
+              <img src="proj-portfolio.jpg" alt="Personal Portfolio" class="proj-detail-img"
+                onerror="this.src=''; this.closest('.proj-detail-img-wrap').classList.add('no-img')">
+              <div class="proj-img-overlay">
+                <button class="proj-fullscreen-btn" title="View fullscreen">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+              </div>
+            </div>
+            <div class="proj-detail-body">
+              <span class="proj-detail-num">03</span>
+              <h3>Personal Portfolio</h3>
+              <p>Designed and built this portfolio website to present my skills, experience, and projects. Focused on clean layout, smooth navigation, and a professional look accessible on all screen sizes.</p>
+              <div class="proj-detail-tags">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+              <div class="proj-detail-links">
+                <a href="https://github.com/Vinay0264/personal-portfolio" target="_blank" class="proj-detail-btn">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Project 04 -->
+          <div class="proj-detail" data-proj="1">
+            <div class="proj-detail-img-wrap">
+              <img src="Vega_ai.png" alt="Vega AI Assistant" class="proj-detail-img"
+                onerror="this.src=''; this.closest('.proj-detail-img-wrap').classList.add('no-img')">
+              <div class="proj-img-overlay">
+                <button class="proj-fullscreen-btn" title="View fullscreen">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+              </div>
+            </div>
+            <div class="proj-detail-body">
+              <span class="proj-detail-num">04</span>
+              <h3>Vega – Personal AI Assistant <span class="wip-tag">In Progress</span></h3>
+              <p>An AI-powered personal assistant built with FastAPI and Groq's LLaMA 3.3 70B. Supports bilingual voice interaction in both English and Telugu via Web Speech API, with browser automation tools for real-world task execution.</p>
+              <div class="proj-detail-tags">
+                <span>Python</span><span>FastAPI</span><span>Groq LLaMA</span><span>Web Speech API</span><span>Browser Automation</span>
+              </div>
+              <div class="proj-detail-links">
+                <a href="https://github.com/Vinay0264" target="_blank" class="proj-detail-btn">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
             </div>
           </div>
-          <span class="proj-num">03</span>
-          <h3>Personal Portfolio</h3>
-          <p>Designed and built this portfolio website to present my skills, experience, and projects. Focused on clean layout, smooth navigation, and a professional look accessible on all screen sizes.</p>
-          <div class="proj-tags">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-          </div>
-        </div>
 
-        <div class="proj-card reveal proj-featured" style="--proj-img: url('Vega_ai.png')">
-          <div class="proj-img-bg"></div>
-          <div class="proj-card-header">
-            <div class="proj-icon"><i class="bi bi-robot"></i></div>
-            <div class="proj-links">
-              <a href="https://github.com/Vinay0264" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-            </div>
-          </div>
-          <span class="proj-num">04</span>
-          <h3>Vega – Personal AI Assistant <span class="wip-tag">In Progress</span></h3>
-          <p>An AI-powered personal assistant built with FastAPI and Groq's LLaMA 3.3 70B. Supports bilingual voice interaction in both English and Telugu via Web Speech API, with browser automation tools for real-world task execution.</p>
-          <div class="proj-tags">
-            <span>Python</span><span>FastAPI</span><span>Groq LLaMA</span><span>Web Speech API</span><span>Browser Automation</span>
-          </div>
-        </div>
-
-      </div>
+        </div><!-- end proj-detail-panel -->
+      </div><!-- end proj-showcase -->
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <div id="proj-lightbox" class="proj-lightbox">
+    <button class="proj-lightbox-close" id="projLightboxClose"><i class="bi bi-x-lg"></i></button>
+    <img src="" alt="" id="projLightboxImg" class="proj-lightbox-img">
+  </div>
 
   <!-- ═══════════════════════════════════
        CONTACT

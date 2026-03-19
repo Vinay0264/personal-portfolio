@@ -77,28 +77,83 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
   .forEach(el => revealObs.observe(el));
 
 /* ═══════════════════════════════════════════
-   STAGGERED CARD REVEALS
+   PROJECT SHOWCASE — Tabs + Swipe + Arrows + Lightbox
 ═══════════════════════════════════════════ */
-const cardObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const cards = e.target.querySelectorAll('.hl-card, .proj-card');
-      cards.forEach((card, i) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(24px)';
-        card.style.transition = `opacity .5s ${i * 0.08}s ease, transform .5s ${i * 0.08}s ease`;
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 60);
-      });
-      cardObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
+(function () {
+  const tabs       = document.querySelectorAll('.proj-tab');
+  const details    = document.querySelectorAll('.proj-detail');
+  const prevBtn    = document.getElementById('projPrev');
+  const nextBtn    = document.getElementById('projNext');
+  const counterEl  = document.getElementById('projCurrent');
+  const lightbox      = document.getElementById('proj-lightbox');
+  const lightboxImg   = document.getElementById('projLightboxImg');
+  const lightboxClose = document.getElementById('projLightboxClose');
+  const total = details.length;
+  let current = 0;
 
-document.querySelectorAll('.highlights-grid, .projects-grid')
-  .forEach(el => cardObs.observe(el));
+  function goTo(idx) {
+    idx = (idx + total) % total;
+    tabs.forEach(t => t.classList.remove('active'));
+    details.forEach(d => d.classList.remove('active'));
+    const activeTab = document.querySelector(`.proj-tab[data-proj="${idx}"]`);
+    if (activeTab) activeTab.classList.add('active');
+    document.querySelector(`.proj-detail[data-proj="${idx}"]`).classList.add('active');
+    if (counterEl) counterEl.textContent = idx + 1;
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === total - 1;
+    current = idx;
+  }
+
+  // Desktop: tab click
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => goTo(parseInt(tab.dataset.proj)));
+  });
+
+  // Mobile: arrow buttons
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+  goTo(0); // init state
+
+  // Mobile: swipe gesture
+  const panel = document.querySelector('.proj-detail-panel');
+  if (panel) {
+    let startX = 0, startY = 0;
+    panel.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    panel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 48) {
+        if (dx < 0) goTo(current + 1); // swipe left → next
+        else        goTo(current - 1); // swipe right → prev
+      }
+    }, { passive: true });
+  }
+
+  // Open lightbox on image click
+  document.querySelectorAll('.proj-detail-img-wrap').forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const img = wrap.querySelector('.proj-detail-img');
+      if (!img || !img.src || wrap.classList.contains('no-img')) return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxImg.src = ''; }, 350);
+  }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+})();
 
 /* ═══════════════════════════════════════════
    HIGHLIGHT CARD TILT + GLOW
@@ -123,24 +178,28 @@ document.querySelectorAll('.hl-card').forEach(card => {
 });
 
 /* ═══════════════════════════════════════════
-   PROJECT CARD TILT — no glow
+   STAGGERED CARD REVEALS (highlights only)
 ═══════════════════════════════════════════ */
-document.querySelectorAll('.proj-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2, cy = rect.height / 2;
-    const rotX = ((y - cy) / cy) * -4;
-    const rotY = ((x - cx) / cx) *  4;
-    card.style.transform = `translateY(-6px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-    card.style.transition = 'transform .05s';
+const cardObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const cards = e.target.querySelectorAll('.hl-card');
+      cards.forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(24px)';
+        card.style.transition = `opacity .5s ${i * 0.08}s ease, transform .5s ${i * 0.08}s ease`;
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 60);
+      });
+      cardObs.unobserve(e.target);
+    }
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform .45s ease';
-  });
-});
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.highlights-grid')
+  .forEach(el => cardObs.observe(el));
 
 /* ═══════════════════════════════════════════
    COUNTER ANIMATION
