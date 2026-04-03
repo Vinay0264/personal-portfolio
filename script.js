@@ -77,6 +77,50 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
   .forEach(el => revealObs.observe(el));
 
 /* ═══════════════════════════════════════════
+   HIGHLIGHTS — Mobile swipe carousel
+═══════════════════════════════════════════ */
+(function () {
+  const cards   = document.querySelectorAll('.hl-card');
+  const prevBtn = document.getElementById('hlPrev');
+  const nextBtn = document.getElementById('hlNext');
+  const counter = document.getElementById('hlCurrent');
+  const total   = cards.length;
+  let current   = 0;
+
+  function hlGoTo(idx) {
+    idx = (idx + total) % total;
+    cards.forEach(c => c.classList.remove('active'));
+    cards[idx].classList.add('active');
+    if (counter) counter.textContent = idx + 1;
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === total - 1;
+    current = idx;
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => hlGoTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => hlGoTo(current + 1));
+  hlGoTo(0);
+
+  /* swipe gesture */
+  const grid = document.querySelector('.highlights-grid');
+  if (grid) {
+    let startX = 0, startY = 0;
+    grid.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    grid.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 48) {
+        if (dx < 0) hlGoTo(current + 1);
+        else        hlGoTo(current - 1);
+      }
+    }, { passive: true });
+  }
+})();  
+
+/* ═══════════════════════════════════════════
    PROJECT SHOWCASE — Tabs + Swipe + Arrows + Lightbox
 ═══════════════════════════════════════════ */
 (function () {
