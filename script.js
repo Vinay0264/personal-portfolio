@@ -199,51 +199,7 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 })();
 
-/* ═══════════════════════════════════════════
-   HIGHLIGHT CARD TILT + GLOW
-═══════════════════════════════════════════ */
-document.querySelectorAll('.hl-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2, cy = rect.height / 2;
-    const rotX = ((y - cy) / cy) * -4;
-    const rotY = ((x - cx) / cx) *  4;
-    card.style.transform = `translateY(-7px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-    card.style.transition = 'transform .05s';
-    card.style.setProperty('--glow-x', x + 'px');
-    card.style.setProperty('--glow-y', y + 'px');
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform .4s ease';
-  });
-});
 
-/* ═══════════════════════════════════════════
-   STAGGERED CARD REVEALS (highlights only)
-═══════════════════════════════════════════ */
-const cardObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const cards = e.target.querySelectorAll('.hl-card');
-      cards.forEach((card, i) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(24px)';
-        card.style.transition = `opacity .5s ${i * 0.08}s ease, transform .5s ${i * 0.08}s ease`;
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 60);
-      });
-      cardObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-
-document.querySelectorAll('.highlights-grid')
-  .forEach(el => cardObs.observe(el));
 
 /* ═══════════════════════════════════════════
    COUNTER ANIMATION
