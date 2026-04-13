@@ -40,26 +40,46 @@ window.addEventListener('scroll', () => {
 btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* ═══════════════════════════════════════════
-   TABS — with stagger animation on switch
+   ABOUT — Scrollspy
 ═══════════════════════════════════════════ */
-function opentab(tabname, e) {
-  document.querySelectorAll('.tab-contents').forEach(t => t.classList.remove('active-tab'));
-  document.querySelectorAll('.tab-links').forEach(t => t.classList.remove('active-link'));
-  const tab = document.getElementById(tabname);
-  tab.classList.add('active-tab');
-  e.currentTarget.classList.add('active-link');
-
-  const items = tab.querySelectorAll('.skill-chip, .exp-item-body, .edu-item, .qf-item');
-  items.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(14px)';
-    el.style.transition = `opacity .38s ${i * 0.055}s ease, transform .38s ${i * 0.055}s ease`;
-    setTimeout(() => {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }, 20);
-  });
+function abtToggle(textId, btnId) {
+  const el  = document.getElementById(textId);
+  const btn = document.getElementById(btnId);
+  const open = btn.classList.contains('open');
+  el.classList.toggle('clamped', open);
+  btn.classList.toggle('open', !open);
+  btn.childNodes[0].textContent = open ? 'Read more ' : 'Read less ';
 }
+
+(function () {
+  const content  = document.getElementById('abtContent');
+  const navItems = document.querySelectorAll('.abt-nav-item');
+  const sections = ['abt-about','abt-skills','abt-exp','abt-edu','abt-snap'];
+  const prog     = document.getElementById('abtProg');
+
+  if (!content) return;
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const el = document.getElementById(item.dataset.target);
+      if (el) content.scrollTop = el.offsetTop;
+    });
+  });
+
+  content.addEventListener('scroll', () => {
+    const st = content.scrollTop;
+    const sh = content.scrollHeight - content.clientHeight;
+    if (prog) prog.style.width = Math.round((st / sh) * 100) + '%';
+    let cur = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop - st <= 60) cur = id;
+    });
+    // Ensure last section activates when at bottom
+    if (st >= sh - 10) cur = sections[sections.length - 1];
+    navItems.forEach(item => item.classList.toggle('active', item.dataset.target === cur));
+  });
+})();
 
 /* ═══════════════════════════════════════════
    SCROLL REVEAL

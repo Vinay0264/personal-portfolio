@@ -107,293 +107,185 @@
 </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       ABOUT
-  ════════════════════════════════════ -->
+<!-- ═══════════════════════════════════
+     ABOUT
+════════════════════════════════════ -->
 <section id="about">
   <div class="container">
     <h2 class="sub-title reveal">About <span>Me</span></h2>
-    <div class="about-grid">
-
-      <!-- Left: Bio + Tab Buttons -->
-      <div class="about-left reveal-left">
-        <p class="about-bio">
-          I'm <strong>Vasa Vinay</strong>, a B.Sc. Computer Science graduate from Visakhapatnam with a strong interest in building useful digital products and interactive web experiences.
-          <br><br>
-          My work is mainly focused on frontend development, practical web projects, and AI-assisted tools that improve how people interact with technology.
-          <br><br>
-          I enjoy learning by building, refining ideas through real projects, and creating things that are clear, functional, and thoughtfully made.
-        </p>
-
-        <div class="tab-titles">
-          <button class="tab-links active-link" onclick="opentab('skills', event)">
-            <i class="bi bi-lightning-charge-fill"></i> Skills
-          </button>
-          <button class="tab-links" onclick="opentab('experience', event)">
-            <i class="bi bi-briefcase-fill"></i> Experience
-          </button>
-          <button class="tab-links" onclick="opentab('education', event)">
-            <i class="bi bi-mortarboard-fill"></i> Education
-          </button>
-          <button class="tab-links" onclick="opentab('snapshot', event)">
-            <i class="bi bi-person-badge-fill"></i> Snapshot
-          </button>
+    <p class="section-sub reveal">A scrollable look at who I am, how I think, and how I approach building things.</p>
+ 
+    <div class="about-scrollspy reveal">
+      <!-- Left nav -->
+      <nav class="abt-nav" id="abtNav">
+        <div class="abt-nav-item active" data-target="abt-about"><i class="bi bi-person-fill"></i> About</div>
+        <div class="abt-nav-item" data-target="abt-skills"><i class="bi bi-lightning-charge-fill"></i> Skills</div>
+        <div class="abt-nav-item" data-target="abt-exp"><i class="bi bi-briefcase-fill"></i> Experience</div>
+        <div class="abt-nav-item" data-target="abt-edu"><i class="bi bi-mortarboard-fill"></i> Education</div>
+        <div class="abt-nav-item" data-target="abt-snap"><i class="bi bi-person-badge-fill"></i> Snapshot</div>
+        <div class="abt-nav-progress">
+          <span class="abt-nav-prog-label">Progress</span>
+          <div class="abt-nav-bar-track">
+            <div class="abt-nav-bar-fill" id="abtProg"></div>
+          </div>
         </div>
-      </div>
-
-      <!-- Right: Tab Content Display -->
-      <div class="about-right reveal-right">
-
-        <!-- SKILLS TAB -->
-        <div class="tab-contents active-tab" id="skills">
-          <div class="tab-panel-header">
-            <i class="bi bi-lightning-charge-fill"></i>
-            <div>
-              <h3>Technical Skills</h3>
-              <p>Core technologies, practical strengths, and development tools</p>
+      </nav>
+ 
+      <!-- Right scrollable content -->
+      <div class="abt-content" id="abtContent">
+ 
+        <!-- ABOUT -->
+        <div class="abt-sec" id="abt-about">
+          <div class="abt-sec-label"><i class="bi bi-person-fill"></i> About</div>
+          <p class="abt-name">Vasa Vinay</p>
+          <p class="abt-role">B.Sc. CS Graduate · Builder · Problem Solver</p>
+          <p class="abt-bio clamped" id="bio-text">
+            I'm <strong>Vasa Vinay</strong>, a Computer Science graduate interested in building useful and meaningful solutions through technology.
+            
+            I approach learning by working on real ideas—exploring, testing, and improving them step by step. Instead of following fixed paths, I focus on understanding how things work and applying that knowledge in practical situations.
+            
+            I enjoy creating things that are clear, functional, and purposeful, while continuously improving through hands-on experience and experimentation.
+            
+            Currently, I’m exploring different directions, combining development, problem-solving, and emerging technologies to build better and more useful outcomes over time.
+          </p>
+          <button class="abt-rm" id="bio-btn" onclick="abtToggle('bio-text','bio-btn')">Read more <i class="bi bi-chevron-down"></i></button>
+        </div>
+ 
+        <!-- SKILLS -->
+        <div class="abt-sec" id="abt-skills">
+          <div class="abt-sec-label"><i class="bi bi-lightning-charge-fill"></i> Skills</div>
+ 
+          <div class="abt-skill-group">
+            <span class="abt-skill-cat">Core Technologies</span>
+            <div class="abt-skill-grid">
+              <div class="abt-skill-item"><i class="bi bi-filetype-html"></i><span>HTML5</span></div>
+              <div class="abt-skill-item"><i class="bi bi-filetype-css"></i><span>CSS3</span></div>
+              <div class="abt-skill-item"><i class="bi bi-filetype-js"></i><span>JavaScript</span></div>
+              <div class="abt-skill-item"><i class="bi bi-filetype-py"></i><span>Python</span></div>
+              <div class="abt-skill-item"><i class="bi bi-database"></i><span>SQL / MySQL</span></div>
             </div>
           </div>
-
-          <div class="skill-categories">
-            <div class="skill-category">
-              <span class="skill-cat-label">Frontend Development</span>
-              <div class="skill-grid">
-                <div class="skill-chip"><i class="bi bi-filetype-html"></i> HTML5</div>
-                <div class="skill-chip"><i class="bi bi-filetype-css"></i> CSS3</div>
-                <div class="skill-chip"><i class="bi bi-filetype-js"></i> JavaScript (ES6+)</div>
-                <div class="skill-chip"><i class="bi bi-phone"></i> Responsive Design</div>
-                <div class="skill-chip"><i class="bi bi-layout-text-window"></i> UI Structuring</div>
-                <div class="skill-chip"><i class="bi bi-mouse"></i> Interactive Interfaces</div>
-              </div>
-            </div>
-
-            <div class="skill-category">
-              <span class="skill-cat-label">Backend & Data</span>
-              <div class="skill-grid">
-                <div class="skill-chip"><i class="bi bi-filetype-py"></i> Python</div>
-                <div class="skill-chip"><i class="bi bi-lightning-charge"></i> FastAPI</div>
-                <div class="skill-chip"><i class="bi bi-database"></i> SQL / MySQL</div>
-                <div class="skill-chip"><i class="bi bi-diagram-3"></i> REST APIs</div>
-                <div class="skill-chip"><i class="bi bi-hdd-network"></i> API Integration</div>
-              </div>
-            </div>
-
-            <div class="skill-category">
-              <span class="skill-cat-label">Tools & Workflow</span>
-              <div class="skill-grid">
-                <div class="skill-chip"><i class="bi bi-git"></i> Git &amp; GitHub</div>
-                <div class="skill-chip"><i class="bi bi-code-slash"></i> VS Code</div>
-                <div class="skill-chip"><i class="bi bi-search"></i> Research-Driven Learning</div>
-              </div>
+ 
+          <div class="abt-skill-group">
+            <span class="abt-skill-cat">Concepts & Tools</span>
+            <div class="abt-skill-grid">
+              <div class="abt-skill-item"><i class="bi bi-diagram-3"></i><span>APIs & Integration</span></div>
+              <div class="abt-skill-item"><i class="bi bi-layout-text-window"></i><span>UI Structuring</span></div>
+              <div class="abt-skill-item"><i class="bi bi-phone"></i><span>Responsive Design</span></div>
+              <div class="abt-skill-item"><i class="bi bi-git"></i><span>Git & GitHub</span></div>
+              <div class="abt-skill-item"><i class="bi bi-code-slash"></i><span>VS Code</span></div>
             </div>
           </div>
         </div>
-
-        <!-- EXPERIENCE TAB -->
-        <div class="tab-contents" id="experience">
-          <div class="tab-panel-header">
-            <i class="bi bi-briefcase-fill"></i>
-            <div>
-              <h3>Experience</h3>
-              <p>Applied work, practical exposure, and project-based development</p>
+ 
+        <!-- EXPERIENCE -->
+        <div class="abt-sec" id="abt-exp">
+          <div class="abt-sec-label"><i class="bi bi-briefcase-fill"></i> Experience</div>
+ 
+          <div class="abt-exp-card">
+            <div class="abt-exp-top">
+              <h4>Freelance Website Project</h4>
+              <span class="abt-exp-year">2025</span>
+            </div>
+            <p class="abt-exp-company">Educational Institution</p>
+            <p class="abt-exp-desc clamped" id="exp1-text">Worked on a website project for an educational institution, focusing on structure, clarity, and usability to create a clean and accessible digital presence.</p>
+            <button class="abt-rm" id="exp1-btn" onclick="abtToggle('exp1-text','exp1-btn')">Read more <i class="bi bi-chevron-down"></i></button>
+            <div class="abt-exp-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
             </div>
           </div>
-
-          <div class="exp-timeline">
-            <div class="exp-item">
-              <div class="exp-item-left">
-                <div class="exp-year-badge">2025</div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-item-body">
-                <div class="exp-item-header">
-                  <h4>Freelance Website Project</h4>
-                  <span class="exp-company-tag">Educational Institution</span>
-                </div>
-                <p>Worked on a website project for an educational institution, focusing on layout structure, content presentation, and building a clean, accessible web presence for a real-world use case.</p>
-                <div class="exp-tech-tags">
-                  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI Design</span>
-                </div>
-              </div>
+ 
+          <div class="abt-exp-card">
+            <div class="abt-exp-top">
+              <h4>Python Full-Stack Internship</h4>
+              <span class="abt-exp-year">2025</span>
             </div>
-
-                        <div class="exp-item">
-              <div class="exp-item-left">
-                <div class="exp-year-badge">2025</div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-item-body">
-                <div class="exp-item-header">
-                  <h4>Python Full-Stack Internship</h4>
-                  <span class="exp-company-tag">Intern Stump</span>
-                </div>
-                <p>Gained introductory exposure to Python full-stack development concepts, including application structure, backend fundamentals, and general development workflow awareness.</p>
-                <div class="exp-tech-tags">
-                  <span>Python</span><span>FastAPI</span><span>Development Basics</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="exp-item">
-              <div class="exp-item-left">
-                <div class="exp-year-badge">2024</div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-item-body">
-                <div class="exp-item-header">
-                  <h4>Full-Stack Development Internship</h4>
-                  <span class="exp-company-tag">DataValley</span>
-                </div>
-                <p>Built foundational frontend development skills through structured learning and hands-on exposure to HTML, CSS, and JavaScript, while understanding how modern web pages are designed and developed.</p>
-                <div class="exp-tech-tags">
-                  <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- EDUCATION TAB -->
-        <div class="tab-contents" id="education">
-          <div class="tab-panel-header">
-            <i class="bi bi-mortarboard-fill"></i>
-            <div>
-              <h3>Education</h3>
-              <p>Academic background and foundational learning</p>
+            <p class="abt-exp-company">Intern Stump</p>
+            <p class="abt-exp-desc clamped" id="exp2-text">Gained exposure to development workflows, backend fundamentals, and how different parts of an application connect in real-world scenarios.</p>
+            <button class="abt-rm" id="exp2-btn" onclick="abtToggle('exp2-text','exp2-btn')">Read more <i class="bi bi-chevron-down"></i></button>
+            <div class="abt-exp-tags">
+              <span>Python</span><span>FastAPI</span>
             </div>
           </div>
-
-          <div class="edu-timeline">
-            <div class="edu-item">
-              <div class="edu-item-icon"><i class="bi bi-building"></i></div>
-              <div class="edu-item-body">
-                <div class="edu-item-top">
-                  <div>
-                    <h4>B.Sc. Computer Science</h4>
-                    <span class="edu-school">Sri Balaji Degree College, Pendurthi</span>
-                  </div>
-                  <div class="edu-item-right">
-                    <span class="edu-score">85%</span>
-                    <span class="edu-year-tag">2022–25</span>
-                  </div>
-                </div>
-              </div>
+ 
+          <div class="abt-exp-card">
+            <div class="abt-exp-top">
+              <h4>Full-Stack Development Internship</h4>
+              <span class="abt-exp-year">2024</span>
             </div>
-
-            <div class="edu-item">
-              <div class="edu-item-icon"><i class="bi bi-journal-bookmark"></i></div>
-              <div class="edu-item-body">
-                <div class="edu-item-top">
-                  <div>
-                    <h4>Intermediate (MPC)</h4>
-                    <span class="edu-school">Sri Balaji Junior College, Pendurthi</span>
-                  </div>
-                  <div class="edu-item-right">
-                    <span class="edu-score">80.6%</span>
-                    <span class="edu-year-tag">2020–22</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="edu-item">
-              <div class="edu-item-icon"><i class="bi bi-book"></i></div>
-              <div class="edu-item-body">
-                <div class="edu-item-top">
-                  <div>
-                    <h4>SSC (10th Grade)</h4>
-                    <span class="edu-school">Govt. High School, Pendurthi</span>
-                  </div>
-                  <div class="edu-item-right">
-                    <span class="edu-score">94%</span>
-                    <span class="edu-year-tag">2019–20</span>
-                  </div>
-                </div>
-              </div>
+            <p class="abt-exp-company">DataValley</p>
+            <p class="abt-exp-desc clamped" id="exp3-text">Built foundational understanding of web development and how structured interfaces and functionality come together in modern applications.</p>
+            <button class="abt-rm" id="exp3-btn" onclick="abtToggle('exp3-text','exp3-btn')">Read more <i class="bi bi-chevron-down"></i></button>
+            <div class="abt-exp-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
             </div>
           </div>
         </div>
-
-        <!-- SNAPSHOT TAB -->
-        <div class="tab-contents" id="snapshot">
-          <div class="tab-panel-header">
-            <i class="bi bi-person-badge-fill"></i>
-            <div>
-              <h3>Snapshot</h3>
-              <p>A concise overview of how I work and what I focus on</p>
+ 
+        <!-- EDUCATION -->
+        <div class="abt-sec" id="abt-edu">
+          <div class="abt-sec-label"><i class="bi bi-mortarboard-fill"></i> Education</div>
+ 
+          <div class="abt-edu-card">
+            <div class="abt-edu-score">85%</div>
+            <div class="abt-edu-body">
+              <h4>B.Sc. Computer Science</h4>
+              <span class="abt-edu-school">Sri Balaji Degree College, Pendurthi</span>
+              <span class="abt-edu-year">2022 - 2025</span>
             </div>
           </div>
-
+ 
+          <div class="abt-edu-card">
+            <div class="abt-edu-score">80.6%</div>
+            <div class="abt-edu-body">
+              <h4>Intermediate (MPC)</h4>
+              <span class="abt-edu-school">Sri Balaji Junior College, Pendurthi</span>
+              <span class="abt-edu-year">2020 - 2022</span>
+            </div>
+          </div>
+ 
+          <div class="abt-edu-card">
+            <div class="abt-edu-score">94%</div>
+            <div class="abt-edu-body">
+              <h4>SSC (10th Grade)</h4>
+              <span class="abt-edu-school">Govt. High School, Pendurthi</span>
+              <span class="abt-edu-year">2019 - 2020</span>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- SNAPSHOT -->
+        <div class="abt-sec" id="abt-snap">
+          <div class="abt-sec-label"><i class="bi bi-person-badge-fill"></i> Snapshot</div>
           <div class="qf-grid">
             <div class="qf-item">
               <div class="qf-icon"><i class="bi bi-geo-alt-fill"></i></div>
-              <div>
-                <span class="qf-label">Based In</span>
-                <span class="qf-value">Visakhapatnam, Andhra Pradesh</span>
-              </div>
+              <div><span class="qf-label">Based In</span><span class="qf-value">Visakhapatnam, Andhra Pradesh</span></div>
             </div>
-
             <div class="qf-item">
-              <div class="qf-icon"><i class="bi bi-window-stack"></i></div>
-              <div>
-                <span class="qf-label">Primary Strength</span>
-                <span class="qf-value">Frontend-Focused Web Development</span>
-              </div>
+              <div class="qf-icon"><i class="bi bi-mortarboard-fill"></i></div>
+              <div><span class="qf-label">Education</span><span class="qf-value">B.Sc. Computer Science</span></div>
             </div>
-
             <div class="qf-item">
               <div class="qf-icon"><i class="bi bi-cpu"></i></div>
               <div>
                 <span class="qf-label">Current Focus</span>
-                <span class="qf-value">Web Products and AI-Assisted Tools</span>
+                <span class="qf-value">Using AI in projects and experimenting with practical applications</span>
               </div>
             </div>
-
-            <div class="qf-item">
-              <div class="qf-icon"><i class="bi bi-patch-check-fill"></i></div>
-              <div>
-                <span class="qf-label">Learning Style</span>
-                <span class="qf-value">Hands-On, Self-Driven, Project-Based</span>
-              </div>
-            </div>
-
-            <div class="qf-item">
-              <div class="qf-icon"><i class="bi bi-lightbulb-fill"></i></div>
-              <div>
-                <span class="qf-label">Work Approach</span>
-                <span class="qf-value">Build Clearly, Improve Constantly</span>
-              </div>
-            </div>
-
-            <div class="qf-item">
-              <div class="qf-icon"><i class="bi bi-award-fill"></i></div>
-              <div>
-                <span class="qf-label">Foundation</span>
-                <span class="qf-value">Computer Science and Practical Web Building</span>
-              </div>
-            </div>
-
-            <div class="qf-item">
-              <div class="qf-icon"><i class="bi bi-stars"></i></div>
-              <div>
-                <span class="qf-label">Core Interests</span>
-                <span class="qf-value">AI Tools, Web Interfaces, Problem Solving</span>
-              </div>
-            </div>
-
             <div class="qf-item">
               <div class="qf-icon"><i class="bi bi-kanban-fill"></i></div>
-              <div>
-                <span class="qf-label">Working Style</span>
-                <span class="qf-value">Focused, Curious, and Detail-Oriented</span>
-              </div>
+              <div><span class="qf-label">Work Style</span><span class="qf-value">Structured approach with focus on clarity and execution</span></div>
+            </div>
+            <div class="qf-item">
+              <div class="qf-icon"><i class="bi bi-briefcase-fill"></i></div>
+              <div><span class="qf-label">Experience</span><span class="qf-value">Internships and freelance project work</span></div>
             </div>
           </div>
         </div>
-
-      </div>
-    </div>
+ 
+      </div><!-- end abt-content -->
+    </div><!-- end about-scrollspy -->
   </div>
 </section>
 
